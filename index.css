@@ -19,10 +19,19 @@
   margin: 10px;
 }
 
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
 .res-card {
   padding: 5px;
-  width: 200px;
+  width: 15vw;
   height: 500px;
+  margin: 5px;
+  border-radius: 30px;
+  border: 5px black;
 }
 
 .res-card:hover {
@@ -30,16 +39,18 @@
   border: 1px solid black;
 }
 
-.res-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .search {
   padding: 10px;
 }
 
 .res-logo {
+  height: 25vh;
   width: 100%;
   object-fit: fill;
+  border-radius: 30px ;
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
 }
