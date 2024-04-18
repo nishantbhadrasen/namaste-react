@@ -20,7 +20,7 @@
 - Tree Shaking -removed unused code for you
 - Different dev and prod bundles
 
-# Hola Food Ordering App
+# Namaste Food Ordering App
 
 - Header
 - Logo
@@ -49,6 +49,8 @@
   import {Component} from "./path";
 
 # React Hooks
- (Normal JS utility functions)
- - useState() - Superpowerful State Variables in react
- - useEffect() - 
+
+(Normal JS utility functions)
+
+- useState() - Superpowerful State Variables in react
+- useEffect() -
