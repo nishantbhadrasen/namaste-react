@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 //not using keys (not acceptable) <<< index as keys <<<<<< unique id (Best)
 
@@ -17,18 +18,17 @@ const Body = () => {
     );
 
     const json = await data.json();
+    console.log(json);
+    //Optional Chaining
     setListofRestaurant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-
-    console.log(json);
   };
 
-  if (listOfRestaurants.length === 0) {
-    return <h1>Loading... </h1>;
-  }
-
-  return (
+  // Conditional Rendering
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
