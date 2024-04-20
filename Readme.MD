@@ -54,3 +54,8 @@
 
 - useState() - Superpowerful State Variables in react
 - useEffect() -
+
+# Two types of Routung
+
+- Cilent-Side Routing (react uses this)
+- Server-Side Routing
