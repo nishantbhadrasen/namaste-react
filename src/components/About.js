@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import User from "./User";
 import UserClass from "./UserClass";
 
@@ -26,7 +26,6 @@ class About extends React.Component {
 }
 
 export default About;
-
 
 /*
 -----MOUNTING-------

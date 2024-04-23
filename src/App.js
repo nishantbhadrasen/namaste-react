@@ -12,8 +12,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 const App = () => {
   return (
     <div>
-      <Header />
-      <Outlet />
+        <Header />
+        <Outlet />
     </div>
   );
 };
@@ -38,7 +38,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
-      }, 
+      },
     ],
     errorElement: <Error />,
   },
