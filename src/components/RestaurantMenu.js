@@ -7,9 +7,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const { resInfo, recommended } = useRestaurantMenu(resId);
 
-  if (!resInfo) {
-    return <Shimmer />;
-  }
+  if (!resInfo) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;

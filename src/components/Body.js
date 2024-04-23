@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // Utilize unique ids for keys when rendering lists - best practice to avoid re-render issues.
 const Body = () => {
@@ -46,6 +47,13 @@ const Body = () => {
     );
     setFilteredRestaurants(filteredList);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus)
+    return (
+      <h1>Looks Like you are offline please check your Internet connection!</h1>
+    );
 
   return (
     <div className="body">
