@@ -1,18 +1,20 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withFastDelivery } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-// Utilize unique ids for keys when rendering lists - best practice to avoid re-render issues.
 const Body = () => {
-  // State for storing the complete list of restaurants.
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  // Separate state for storing filtered list of restaurants, allowing original list to remain unchanged.
+
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  // State to capture and update search text.
+
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardFastDelivery = withFastDelivery(RestaurantCard);
+
+  console.log("Body Rendered:", listOfRestaurants);
 
   // Effect hook to fetch data on component mount.
   useEffect(() => {
@@ -91,7 +93,11 @@ const Body = () => {
               key={restaurant.info.id}
               to={"/restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />{" "}
+              {restaurant.info.sla.deliveryTime <= 33 ? (
+                <RestaurantCardFastDelivery resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           ))
         )}
