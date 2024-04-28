@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import User from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 
 class About extends React.Component {
   constructor(props) {
@@ -13,10 +14,18 @@ class About extends React.Component {
   }
 
   render() {
-    console.log("Parent: Render");
+    //console.log("Parent: Render");
     return (
       <div>
         <h1>About Us </h1>
+        <div>
+          LoggedInUser
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h3 className="text-xl font-bold">{loggedInUser}</h3>
+            )}
+          </UserContext.Consumer>
+        </div>
         <h2>This is Namaste React Web Series</h2>
 
         <UserClass name={"First"} location={"Fulda class"} />
