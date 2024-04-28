@@ -7,6 +7,9 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
+      //Redux Tookit uses immer BTS
+
+      //Mutating the state
       state.items.push(action.payload);
     },
     removeItem: (state) => {
