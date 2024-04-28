@@ -14,7 +14,7 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    console.log(this.props.name + ", " + "Children: Component did Mount!");
+    //console.log(this.props.name + ", " + "Children: Component did Mount!");
 
     const data = await fetch("https://api.github.com/users/nishantbhadrasen");
     const jsonData = await data.json();
@@ -33,7 +33,7 @@ class UserClass extends React.Component {
   }
 
   render() {
-    console.log(this.props.name + ", " + "Children: Render");
+    //console.log(this.props.name + ", " + "Children: Render");
 
     const { name, location, avatar_url } = this.state.userInfo;
     return (
