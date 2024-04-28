@@ -4,7 +4,6 @@ import "../index.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -14,6 +13,7 @@ import UserContext from "./utils/UserContext";
 //Chunking, Code Spiltting, Dynamic Bundling, Lazy Loading, On Demand Loading == All same thing
 
 const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
 
 const App = () => {
   const [userName, setUserName] = useState();
@@ -28,7 +28,7 @@ const App = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="app">
         <Header />
         <Outlet />
@@ -48,7 +48,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
