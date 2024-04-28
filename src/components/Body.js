@@ -1,9 +1,10 @@
 import RestaurantCard, { withFastDelivery } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -57,6 +58,8 @@ const Body = () => {
       <h1>Looks Like you are offline please check your Internet connection!</h1>
     );
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   return (
     <div className="body">
       <div className="filter flex">
@@ -82,6 +85,14 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>Username: </label>
+          <input
+            className="border border-black p-2 ml-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">
