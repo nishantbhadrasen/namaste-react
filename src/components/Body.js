@@ -46,7 +46,7 @@ const Body = () => {
   // Handler for filtering top rated restaurants.
   const handleTopRatedFilter = () => {
     const filteredList = listOfRestaurants.filter(
-      (res) => res.info.avgRating > 4.0
+      (res) => res.info.avgRating > 4.3
     );
     setFilteredRestaurants(filteredList);
   };

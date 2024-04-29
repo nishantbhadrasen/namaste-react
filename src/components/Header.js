@@ -34,7 +34,7 @@ const Header = () => {
           </li>
           <Link to="/cart">
             <li className="px-4 font-bold text-xl">
-              🛒 ({cartItems.length} items)
+              Cart 🛒 ({cartItems.length} items)
             </li>
           </Link>
 
