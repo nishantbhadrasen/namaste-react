@@ -60,11 +60,28 @@
 - Cilent-Side Routing (react uses this)
 - Server-Side Routing
 
-
 # Redux ToolKit
+
 - Install `npm install @reduxjs/toolkit` and `react-redux`
 - Build our store
-- Connect our store to our app 
+- Connect our store to our app
 - Slice (cartSlice)
 - dispatch(action)
 - Selector
+
+# Types of Testing (d eveloper)
+
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# Setting Up Testing in our app
+
+- Install React Testing Library
+- Install Jest
+- Install Babel dependencies
+- Add babel.config.js file at root level (paste congig there)
+- Configure parcel config file to disabale default babel transpilation
+- Jest Configuration (npx jest --init)
+- Install JSDOM Library
+
