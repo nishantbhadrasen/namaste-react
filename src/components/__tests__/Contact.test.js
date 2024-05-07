@@ -2,39 +2,41 @@ import { render, screen } from "@testing-library/react";
 import Contact from "../Contact";
 import "@testing-library/jest-dom";
 
-test("Should Load Contact Us Component", () => {
-  render(<Contact />);
+describe("Contact Us Page Test Cases", () => {
+  it("Should Load Contact Us Component", () => {
+    render(<Contact />);
 
-  const heading = screen.getByRole("heading");
+    const heading = screen.getByRole("heading");
 
-  //Assertion
-  expect(heading).toBeInTheDocument();
-});
+    //Assertion
+    expect(heading).toBeInTheDocument();
+  });
 
-test("Should Load Button inside the Contact Us Component", () => {
-  render(<Contact />);
+  it("Should Load Button inside the Contact Us Component", () => {
+    render(<Contact />);
 
-  const button = screen.getByRole("button");
+    const button = screen.getByRole("button");
 
-  //Assertion
-  expect(button).toBeInTheDocument();
-});
+    //Assertion
+    expect(button).toBeInTheDocument();
+  });
 
-test("Should Load Input name inside the Contact Us Component", () => {
-  render(<Contact />);
+  it("Should Load Input name inside the Contact Us Component", () => {
+    render(<Contact />);
 
-  const inputName = screen.getByPlaceholderText("Name");
+    const inputName = screen.getByPlaceholderText("Name");
 
-  //Assertion
-  expect(inputName).toBeInTheDocument();
-});
+    //Assertion
+    expect(inputName).toBeInTheDocument();
+  });
 
-test("Should Load Two Input name inside the Contact Us Component", () => {
-  render(<Contact />);
+  it("Should Load Two Input name inside the Contact Us Component", () => {
+    render(<Contact />);
 
-  //Querying
-  const inputBoxes = screen.getAllByRole("textbox");
+    //Querying
+    const inputBoxes = screen.getAllByRole("textbox");
 
-  // Assertion to check if the exact number of expected textboxes are present
-  expect(inputBoxes.length).toBe(2);
+    // Assertion to check if the exact number of expected textboxes are present
+    expect(inputBoxes.length).toBe(2);
+  });
 });
