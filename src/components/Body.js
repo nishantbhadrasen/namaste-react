@@ -15,7 +15,7 @@ const Body = () => {
 
   const RestaurantCardFastDelivery = withFastDelivery(RestaurantCard);
 
-  console.log("Body Rendered:", listOfRestaurants);
+  //console.log("Body Rendered:", listOfRestaurants);
 
   // Effect hook to fetch data on component mount.
   useEffect(() => {
