@@ -1,89 +1,32 @@
-# Namaste React 🚀
+# Namaste Food Order 🚀
 
-# Parcel
+## Description
 
-- Dev Build
-- Local Server
-- HMR = Hot Module Replacement
-- File Watching Algorithm written in C++
-- Caching - Faster builds
-- Image Optimization
-- Minification
-- Bundling
-- Compress
-- Consistent Hashing
-- Code Splitting
-- Differential Bundling - supoort older browsers
-- Diagonistics
-- Error Handling
-- HTTPs
-- Tree Shaking -removed unused code for you
-- Different dev and prod bundles
+Namaste Food Order is a food ordering web application currently under development. The app features various components such as Header, Body, Restaurant List, Restaurant Card, Cart, About Us, and Contact Us. While still in its early stages, Namaste Food Order lays the foundation for a comprehensive food ordering platform.
 
-# Namaste Food Ordering App
+## Key Features
 
-- Header
-- Logo
-- New Items
-- Body
-- Search
-- Restaurant Container
-- Img
-- Name of Res, Star Rating, Cuisine, delivery time
-- Footer
-- Copyright
-- Links
-- Address
-- Contact
+- Top-rated restaurants listing
+- Search functionality to find specific restaurants
+- View restaurant menu and add items to the cart
+- Lazy loading for optimized performance
+- Test cases written using Jest for search, cart, contact, header, and restaurant card components
 
-# Two types of Import/Export
+## Technologies Used
 
-- Default Export/Import
+- JavaScript
+- React.js
+- HTML
+- Tailwind CSS
 
-  export default Component/variable;
-  import Component from "./path";
+## Installation
 
-- Named Export/Import
+To run the application locally, simply clone the repository and install the necessary dependencies using npm or yarn.
 
-  export const Component;
-  import {Component} from "./path";
+## Usage
 
-# React Hooks
+Once installed, start the development server to explore the app's functionality. Navigate through the various components and test features such as searching for restaurants, viewing menus, and adding items to the cart.
 
-(Normal JS utility functions)
+## Contributing
 
-- useState() - Superpowerful State Variables in react
-- useEffect() -
-
-# Two types of Routung
-
-- Cilent-Side Routing (react uses this)
-- Server-Side Routing
-
-# Redux ToolKit
-
-- Install `npm install @reduxjs/toolkit` and `react-redux`
-- Build our store
-- Connect our store to our app
-- Slice (cartSlice)
-- dispatch(action)
-- Selector
-
-# Types of Testing (d eveloper)
-
-- Unit Testing
-- Integration Testing
-- End to End Testing - e2e testing
-
-# Setting Up Testing in our app
-
-- Install React Testing Library
-- Install Jest
-- Install Babel dependencies
-- Add babel.config.js file at root level (paste congig there)
-- Configure parcel config file to disabale default babel transpilation
-- Jest Configuration (npx jest --init)
-- Install JSDOM Library
-- Install @babel/preset-react - to make jsx work in test cases
-- Install @babel/preset-react inside my babel config
-- Install npm i -D @testing-library/jest-dom
+Namaste Food Order is an open-source project and welcomes contributions from the community. If you'd like to contribute, please fork the repository and submit a pull request with your changes. Together, we can shape the future of this food ordering platform.
