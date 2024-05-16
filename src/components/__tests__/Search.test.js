@@ -13,32 +13,36 @@ global.fetch = jest.fn(() => {
   });
 });
 
-describe("Search functionality", () => {
-  beforeEach(async () => {
-    await act(async () =>
-      render(
-        <BrowserRouter>
-          <Body />
-        </BrowserRouter>
-      )
-    );
-  });
+const searchAndFilter = async (searchText, filterName) => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    )
+  );
 
-  it("should filter restaurants by keyword 'pizza'", async () => {
-    const cardsBeforeSearch = screen.getAllByTestId("resCard");
-    expect(cardsBeforeSearch.length).toBe(20);
+  const cardsBeforeAction = screen.getAllByTestId("resCard");
+  expect(cardsBeforeAction.length).toBe(20);
 
-    const searchBtn = screen.getByRole("button", { name: "Search" });
-    const searchInput = screen.getByTestId("searchInput");
+  const searchInput = screen.getByTestId("searchInput");
+  const filterBtn = screen.getByRole("button", { name: filterName });
 
-    fireEvent.change(searchInput, { target: { value: "pizza" } });
-    fireEvent.click(searchBtn);
+  fireEvent.change(searchInput, { target: { value: searchText } });
+  fireEvent.click(filterBtn);
 
-    const cardsAfterSearch = screen.getAllByTestId("resCard");
+  const cardsAfterAction = screen.getAllByTestId("resCard");
+  return cardsAfterAction;
+};
 
-    expect(cardsAfterSearch.length).toBe(1);
-    expect(searchInput.value).toBe("pizza");
-    expect(searchBtn).toBeInTheDocument();
-    expect(searchInput).toBeInTheDocument();
-  });
+it("Should Search ResList for pizza text input", async () => {
+  const cardsAfterSearch = await searchAndFilter("pizza", "Search");
+
+  expect(cardsAfterSearch.length).toBe(1);
+});
+
+it("Should filter Top Rated ResList", async () => {
+  const cardsAfterFilter = await searchAndFilter("", "Top Rated Restaurants");
+
+  expect(cardsAfterFilter.length).toBe(6);
 });
