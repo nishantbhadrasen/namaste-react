@@ -13,7 +13,7 @@ global.fetch = jest.fn(() => {
   });
 });
 
-it("Should Search ResList  for Pizza text input", async () => {
+it("Should Search ResList for pizza text input", async () => {
   await act(async () =>
     render(
       <BrowserRouter>
@@ -22,12 +22,21 @@ it("Should Search ResList  for Pizza text input", async () => {
     )
   );
 
+  const cardsBeforeSearch = screen.getAllByTestId("resCard");
+  expect(cardsBeforeSearch.length).toBe(20);
+
   const searchBtn = screen.getByRole("button", { name: "Search" });
 
-  const searchInput = screen.getByPlaceholderText("Search");
+  const searchInput = screen.getByTestId("searchInput");
 
-  console.log(searchBtn);
   fireEvent.change(searchInput, { target: { value: "pizza" } });
+  fireEvent.click(searchBtn);
+
+  // Screen Should load 3 cards
+  const cardsAfterSearch = screen.getAllByTestId("resCard");
+
+  expect(cardsAfterSearch.length).toBe(1);
+
   expect(searchInput.value).toBe("pizza");
   expect(searchBtn).toBeInTheDocument();
   expect(searchInput).toBeInTheDocument();
